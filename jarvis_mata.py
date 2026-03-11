@@ -2,12 +2,10 @@ import cv2
 
 # 1. PERSIAPAN DATA (Otak Deteksi)
 # Kita memanggil model deteksi wajah bawaan (Haar Cascade)
-# Ini adalah algoritma yang sudah dilatih untuk mengenali pola wajah manusia
 face_cascade = cv2.CascadeClassifier(
     cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 # 2. PERSIAPAN VISUAL (Kamera)
-# Angka 0 biasanya adalah webcam default laptop
 cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
@@ -16,7 +14,6 @@ if not cap.isOpened():
 
 print("Jarvis Vision System Online. Tekan 'q' untuk keluar.")
 
-# --- Mulai Salin dari Sini ---
 while True:
     ret, frame = cap.read()
     if not ret:
@@ -42,7 +39,6 @@ while True:
     cv2.imshow('Jarvis Vision Alpha', frame)
 
     # 5. LOGIKA TOMBOL (KEYBOARD)
-    # Kita simpan tombol yang ditekan ke variabel 'key'
     key = cv2.waitKey(1) & 0xFF
 
     # Tombol 'q' untuk Quit/Keluar
